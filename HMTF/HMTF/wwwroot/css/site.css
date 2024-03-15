@@ -1,0 +1,58 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+input.custom-input {
+    display: none;
+}
+
+label.custom-upload {
+    height: 100px;
+    width: auto;
+    border-radius: 5px;
+    border: 1px dashed #258cfb;
+}
+
+    label.custom-upload:hover {
+        color: #258cfb;
+        border-color: 5px dashed #f00f;
+    }
+
+th, td {
+    white-space: nowrap;
+}
+
+    th.details-table {
+        vertical-align: middle;
+    }
+
+tr#details-table {
+    border-bottom: hidden;
+}
+
+thead {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody {
+}

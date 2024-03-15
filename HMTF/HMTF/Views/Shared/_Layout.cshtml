@@ -1,0 +1,178 @@
+﻿
+<!DOCTYPE html>
+<!--added 27/2/24-->
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/content/assets/"
+      data-template="vertical-menu-template-free">
+<!--added 27/2/24-->
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!--added 27/2/24-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HMTF.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DataTables/css/dataTables.bootstrap5.css" />
+
+    <!--added 27/2/24-->
+
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Sneat - Free Bootstrap 5 HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/content/assets/img/favicon/favicon.ico" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/content/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Core CSS -->
+    <!--<link rel="stylesheet" href="~/content/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="~/content/assets/vendor/css/theme-default.css" />-->
+    <link rel="stylesheet" href="~/content/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/content/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/content/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="~/content/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="~/content/assets/vendor/css/pages/page-auth.css">
+    <link rel="stylesheet" href="~/content/assets/vendor/css/pages/page-misc.css">
+
+    <!--datepivker css-->
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.min.css" />
+    <!-- Helpers -->
+    <script src="~/content/assets/vendor/js/helpers.js"></script>
+    <script src="~/js/jquery-3.7.1.js"></script>
+
+    <!--added 27/2/24-->
+    <style type="text/css">
+        .layout-menu-fixed .layout-navbar-full .layout-menu,
+        .layout-page {
+            padding-top: 0px !important;
+        }
+
+        .content-wrapper {
+            padding-bottom: 0px !important;
+        }</style>
+    <!--added 27/2/24-->
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/content/assets/js/config.js"></script>
+</head>
+<body>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/content/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <!--datatables-->
+    <script src="~/js/momen.min.js"></script>
+    <script src="~/js/dateTime.dataTables.js"></script>
+    <script src="~/DataTables/js/dataTables.dataTables.min.js"></script>
+    <script src="~/DataTables/js/dataTables.min.js"></script>
+    <script src="~/DataTables/js/dataTables.js"></script>
+    <script src="~/js/bootsrap-datepicker.min.js"></script>
+    <script src="~/js/dataTables.js"></script>
+    <script src="~/DataTables/js/dataTables.bootstrap5.js"></script>
+
+
+    <script src="~/content/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="~/content/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="~/Content/assets/vendor/libs/masonry/masonry.js"></script>
+
+
+    <!-- Main JS -->
+    <script src="~/content/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/content/assets/js/dashboards-analytics.js"></script>
+    <script src="~/content/assets/js/extended-ui-perfect-scrollbar.js"></script>
+    <script src="~/content/assets/js/ui-toasts.js"></script>
+    <script src="~/content/assets/js/ui-popover.js"></script>
+
+
+
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+        var currentUrl = window.location.pathname;
+        $('.menu-link').each(function () {
+            var href = $(this).attr('href')
+            if (href === currentUrl) {
+
+                // added 27 / 2 / 24
+                $(this).closest('.menu-item').addClass('active open'); // + active &openmenu-item
+                $(this).closest('.menu-sub').addClass('open show'); // + show di dropdown
+                // added 27 / 2 / 24
+            }
+        });
+    </script>
+
+    <!--Modal Profile-->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModal">Profile</h5>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" />
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="CreatedBy" class="form-label">CreatedBy</label>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">CreatedAt</label>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Department</label>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

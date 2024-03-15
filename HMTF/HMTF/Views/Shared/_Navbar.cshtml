@@ -1,0 +1,96 @@
+﻿<!--Added 4/3/24, 8.34am-->
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+<!--Added 4/3/24, 8.34am-->
+
+<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+        </a>
+    </div>
+
+    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+        <!-- Search -->
+        <div class="navbar-nav align-items-center">
+            <div class="nav-item d-flex align-items-center">
+                <a href="javascript:history.go(-1);" class="text-decoration-none">
+                    <i class='bx bx-left-arrow-circle'></i>
+                </a>
+            </div>
+        </div>
+        <!-- /Search -->
+
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- Place this tag where you want the button to render. -->
+            <li class="nav-item lh-1 me-3">
+                <span></span>
+            </li>
+            <li class="navbar-item">
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <div class="flex-grow-0">
+                        <span class="fw-semibold d-block">@User?.Identity?.Name</span>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                }
+                else
+                {
+                    <div class="flex-grow-1">
+                        <span class="fw-semibold d-block">No user active. </span>
+                        <small class="text-muted">-</small>
+                    </div>
+                }
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                    <i class='bx bxs-bell mx-2'></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">
+                            <i class="bx bx-user me-2"></i>
+                            <span class="align-middle">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- User -->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                        <img src="~/content/assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">
+                            <i class="bx bx-user me-2"></i>
+                            <span class="align-middle">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--/ User -->
+        </ul>
+    </div>
+</nav>

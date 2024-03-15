@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "Kunjungan Klinik / Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+        @await Html.PartialAsync("_Sidebar")
+        <!-- / Menu -->
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+            @await Html.PartialAsync("_Navbar")
+
+            <!-- / Navbar -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="row">
+                        <div class="my-3">
+                            <div class="d-flex align-items-center">
+                                <a href="javascript:history.go(-1);"><i class='bx bx-chevron-left bx-md text-secondary'></i></a>
+                                <h4 class="m-0 display-7"><span class="fw-lighter">Kunjungan Klinik</span> / Edit</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 my-4 order-0">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <form method="POST">
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-sm-6 p-0 m-0">
+                                                <ul style="list-style:none">
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="nikKunjunganKlinik">NIK</label>
+                                                        <input type="text" class="form-control" id="niknikKunjunganKlinik" placeholder="NIK">
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="nameKunjunganKlinik">NAME</label>
+                                                        <input type="text" class="form-control" id="nameKunjunganKlinik" placeholder="Name">
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="departmentKunjunganKlinik">DEPARTMENT</label>
+                                                        <input type="text" class="form-control" id="departmentKunjunganKlinik" placeholder="Department">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6 p-0 m-0">
+                                                <ul style="list-style:none">
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="tgllhrKunjunganKlinik">Tanggal Lahir</label>
+                                                        <input type="date" class="form-control" id="tgllhrKunjunganKlinik">
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="ageKunjunganKlinik">Age</label>
+                                                        <input type="text" class="form-control" id="ageKunjunganKlinik" placeholder="Age">
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="jenisKunjunganKlinik">Jenis Kunjungan</label>
+                                                        <input type="text" class="form-control" id="jenisKunjunganKlinik" placeholder="Jenis Kunjungan">
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <label class="form-label" for="tglKunjunganKlinik">Tanggal Kunjungan</label>
+                                                        <input type="date" class="form-control" id="tglKunjunganKlinik">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="medicineAllergy">Medicine Allergy</label>
+                                            <div class="col">
+                                                <textarea id="medicineAllergy" class="form-control" style="width:100%" placeholder="" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="subjective">Subjective(Keluhan)</label>
+                                            <div class="col">
+                                                <textarea id="subjective" class="form-control" style="width:100%" placeholder="" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="objective">Objective</label>
+                                            <div class="col">
+                                                <textarea id="objective" class="form-control" style="width:100%" placeholder="" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="disease">Disease</label>
+                                            <div class="col">
+                                                <button id="disease" class="pilih btn btn-outline-secondary dropdown-toggle" style="width:100%" data-bs-toggle="dropdown">-Pilih-</button>
+                                                <ul class="dropdown-menu" style="width:100%">
+                                                    <li><a class="dropdown-item" onclick="changeText1('Demam')">Demam</a></li>
+                                                    <li><a class="dropdown-item" onclick="changeText1('Mual')">Mual</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="diagnose">Diagnose</label>
+                                            <div class="col">
+                                                <textarea id="diagnose" class="form-control" style="width:100%" placeholder="" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="medicalTreatment">Medical Treatment</label>
+                                            <div class="col">
+                                                <textarea id="medicalTreatment" class="form-control" style="width:100%" placeholder="Diagnosa" aria-label="" aria-describedby="basic-icon-default-message2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="col-sm-2 col-form-label" for="result">Result</label>
+                                            <div class="col">
+                                                <button id="result" class="pilih2 dropdown-toggle btn btn-outline-secondary" data-bs-toggle="dropdown">-Pilih-</button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" onclick="changeText2('Fit to work')">Fit to work</a></li>
+                                                    <li><a class="dropdown-item" onclick="changeText2('Unfit to work')">Unfit to work</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <a class="btn btn-secondary mx-1" href="javascript:history.go(-1);">Cancel</a>
+                                                <button type="submit" class="btn btn-primary">Upload</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeText1(selectedText) {
+            // Ambil elemen tombol dropdown
+            var dropdownButton1 = document.getElementById('disease');
+
+            // Ubah teks tombol dropdown menjadi opsi yang dipilih
+            dropdownButton1.innerText = selectedText;
+        }
+
+        function changeText2(selectedText2) {
+            // Ambil elemen tombol dropdown
+            var dropdownButton2 = document.querySelector('.pilih2');
+
+            // Ubah teks tombol dropdown menjadi opsi yang dipilih
+            dropdownButton2.innerText = selectedText2;
+        }
+    </script>
+</div>

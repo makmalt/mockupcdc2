@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "MCU/MCU Berkala/Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+            @await Html.PartialAsync("_Sidebar")
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                @await Html.PartialAsync("_Navbar")
+
+                <!-- / Navbar -->
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+                            <div class="mt-3">
+                                <div class="d-flex align-items-center">
+                                    <a href="javascript:history.go(-1);"><i class='bx bx-chevron-left bx-md text-secondary'></i></a>
+                                    <h4 class="m-0 display-7"><span class="fw-lighter">MCU Berkala</span> / Detail</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 my-4 order-0">
+                                <div class="card">
+                                    <div class="row d-flex justify-content-start mt-3">
+                                        <div class="col-sm-6">
+                                            <ul style="list-style:none">
+                                                <li><span style="display:inline-block; width: 120px;"><strong>Patient ID</strong></span>: 00001</li>
+                                                <li><span style="display:inline-block; width: 120px;"><strong>Patient Name</strong></span>: Akmal</li>
+                                                <li><span style="display:inline-block; width: 120px;"><strong>Department</strong></span>: IT Pharma</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <ul style="list-style:none">
+                                                <li><span style="display:inline-block; width: 120px;"><strong>KTP No.</strong></span>: 112233445566</li>
+                                                <li><span style="display:inline-block; width: 120px;"><strong>Gender</strong></span>: Male</li>
+                                                <li><span style="display:inline-block; width: 120px;"><strong>MCU Awal</strong></span><a href="#">: Download</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end row">
+                                        <div class="col-sm-12">
+                                            <div class="card-body">
+                                                <div class="table-responsive text-nowrap">
+                                                    <table class="table table-striped" id="myTable">
+                                                        <thead>
+                                                            <tr class="text-center">
+                                                                <th rowspan="2" class="details-table">Action</th>
+                                                                <th rowspan="2" class="details-table">MCU Date</th>
+                                                                <th rowspan="2" class="details-table">Age</th>
+                                                                <th colspan="3" class="text-center">Current Medical History</th>
+                                                                <th colspan="8" class="text-center">Past Medical History</th>
+                                                                <th colspan="2" class="text-center">Ear Audiometry</th>
+                                                                <th rowspan="2" class="details-table">Radiology</th>
+                                                                <th rowspan="2" class="details-table">Spirometri</th>
+                                                                <th rowspan="2" class="details-table">Recommendations</th>
+                                                                <th rowspan="2" class="details-table">Hasil MCU</th>
+                                                                <th colspan="2" class="text-center">Follow Up Dokter</th>
+                                                            </tr>
+                                                            <tr id="details-table">
+                                                                <th>Keluhan</th>
+                                                                <th>Sedang Menjalani Pengobatan</th>
+                                                                <th>Ket. Sedang Menjalani Pengobatan</th>
+                                                                <th>Pernah Sakit</th>
+                                                                <th>Ket. Pernah Sakit</th>
+                                                                <th>Pernah Rawat</th>
+                                                                <th>Ket. Pernah Rawat</th>
+                                                                <th>Pernah Operasi</th>
+                                                                <th>Ket. Pernah Operasi</th>
+                                                                <th>Pernah Kecelakaan</th>
+                                                                <th>Ket. Pernah Kecelakaan</th>
+                                                                <th>Right</th>
+                                                                <th>Left</th>
+                                                                <th>Status(fit/unfit)</th>
+                                                                <th>Remark</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="details-table">
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="#" class="me-1" style="color:orange" data-bs-toggle="modal" data-bs-target="#followUpModal">Follow Up </a>
+                                                                        |
+                                                                        <a class="ms-1" asp-controller="PeriodicMCU" asp-action="SubDetails"> Detail</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>Akmal</td>
+                                                                <td>IT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="#" class="me-1" style="color:orange" data-bs-toggle="modal" data-bs-target="#followUpModal">Follow Up </a>
+                                                                        |
+                                                                        <a class="ms-1" asp-controller="PeriodicMCU" asp-action="SubDetails"> Detail</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>Akmal</td>
+                                                                <td>IT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                                <td>FIT</td>
+                                                            </tr>
+                                                            <!--Modal followup -->
+                                                            <div class="modal fade" id="followUpModal" tabindex="-1" role="dialog" aria-labelledby="followUpModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="followUpModalLabel">Follow Up Temuan Dokter</h5>
+                                                                        </div>
+                                                                        <form method="POST">
+                                                                            <div class="modal-body">
+                                                                                <input type="hidden" name="Id" value="" />
+                                                                                <label for="dropfit">Pilih Konidisi</label>
+                                                                                <div class="dropdown d-lg-flex justify-content-center">
+                                                                                    <button class="pilih dropdown-toggle btn btn-outline-secondary" style="width: 100%" id="dropfit" type="button" data-bs-toggle="dropdown">
+                                                                                        -Pilih-
+                                                                                    </button>
+                                                                                    <ul class="dropdown-menu" style="width:100%">
+                                                                                        <li>
+                                                                                        <li><a class="dropdown-item" href="#" onclick="changeText('Fit')">Fit</a></li>
+                                                                                        <li><a class="dropdown-item" href="#" onclick="changeText('Unfit')">Unfit</a></li>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="form-floating my-2">
+                                                                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                                                                    <label for="floatingTextarea2">Comments</label>
+                                                                                </div>
+                                                                                <label for="file"><input type="file" /></label>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                                                </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- / Content -->
+                                                <div class="content-backdrop fade"></div>
+                                            </div>
+                                            <!-- Content wrapper -->
+                                        </div>
+                                        <!-- / Layout page -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable({
+                    scrollX: true
+                });
+            });
+
+            function changeText(selectedText) {
+                // Ambil elemen tombol dropdown
+                var dropdownButton = document.querySelector('.pilih');
+
+                // Ubah teks tombol dropdown menjadi opsi yang dipilih
+                dropdownButton.innerText = selectedText;
+            }
+        </script>
+    </div>
+
+</body>

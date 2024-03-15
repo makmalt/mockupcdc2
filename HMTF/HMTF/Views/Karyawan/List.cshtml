@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Data User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+        @await Html.PartialAsync("_Sidebar")
+        <!-- / Menu -->
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+            @await Html.PartialAsync("_Navbar")
+
+            <!-- / Navbar -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="row">
+                        <div class="mt-3">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h4 class="m-0 display-7">Master Data</h4>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-primary" asp-controller="Karyawan" asp-action="Add">+ Tambah user</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 my-4 order-0">
+                            <div class="card">
+                                <div class="d-flex align-items-end row">
+                                    <div class="col-sm-12">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" id="myTable" >
+                                                    <thead>
+                                                            <tr>
+                                                            <th>No</th>
+                                                            <th>Description</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Lorem ipsum</td>
+                                                            <td>
+                                                                    <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#editUserModal">Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                            <!--Modal edit data -->
+                                                            <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                                                                        </div>
+                                                                        <form method="POST">
+                                                                            <div class="modal-body">
+                                                                                <input type="hidden" name="Id" value="" />
+                                                                                <div class="mb-3">
+                                                                                    <label for="name" class="form-label">Name</label>
+                                                                                    <input type="text" class="form-control" id="name" name="Name">
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="CreatedBy" class="form-label">Description</label>
+                                                                                    <input type="text" class="form-control" id="CreatedBy" name="CreatedBy">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                           @*  @for (var i = 0; i < Model.Count; i++)
+                                                        {
+                                                                var user = Model[i];
+                                                            <tr>
+                                                                <td>@(i+1)</td>
+                                                                <td>@user.Name</td>
+                                                                <td>@user.CreatedBy</td>
+                                                                <td>@user.CreatedAt</td>
+                                                                <td>@user.Departement</td>
+
+                                                                <td>
+                                                                    <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#editUserModal-@user.Id">Edit</a>
+                                                                </td>
+                                                                <!--Modal edit data -->
+                                                                <div class="modal fade" id="editUserModal-@user.Id" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                                                                            </div>
+                                                                            <form method="POST" asp-action="Edit" asp-controller="Karyawan">
+                                                                                <div class="modal-body">
+                                                                                    <input type="hidden" name="Id" value="@user.Id" />
+                                                                                    <div class="mb-3">
+                                                                                        <label for="name" class="form-label">Name</label>
+                                                                                        <input type="text" class="form-control" id="name" name="Name" asp-for="@user.Name">
+                                                                                    </div> 
+                                                                                    <div class="mb-3">
+                                                                                        <label for="CreatedBy" class="form-label">CreatedBy</label>
+                                                                                        <input type="text" class="form-control" id="CreatedBy" name="CreatedBy" asp-for="@user.CreatedBy">
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label for="department" class="form-label">CreatedAt</label>
+                                                                                        <input type="text" class="form-control" id="CreatedAt" name="CreatedAt" asp-for="@user.CreatedAt">
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label for="department" class="form-label">Department</label>
+                                                                                        <input type="text" class="form-control" id="departement" name="Departement" asp-for="@user.Departement">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Modal delete data -->
+                                                                <div class="modal fade" id="deleteUserModal-@user.Id" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="editUserModalLabel">Konfirmasi</h5>
+                                                                            </div>
+                                                                            <form method="POST" asp-action="Delete" asp-controller="Karyawan">
+                                                                                <div class="modal-body m-0">
+                                                                                    <p>Yakin ingin menghapus user <strong>@user.Name</strong> ?</p>
+                                                                                    <input type="hidden" name="Id" value="@user.Id" />
+
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                                                    <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </tr>
+                                                        } *@
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- / Content -->
+                                            @* <div class="content-backdrop fade"></div> *@
+                                        </div>
+                                        <!-- Content wrapper -->
+                                    </div>
+                                    <!-- / Layout page -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>    
+            $(document).ready(function () {
+                $('#myTable').DataTable({
+                });
+            });
+        </script>
+</div>
+
+</body>

@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "MCU/MCU Awal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+            @await Html.PartialAsync("_Sidebar")
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                @await Html.PartialAsync("_Navbar")
+
+                <!-- / Navbar -->
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+                            <div class="mt-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="m-0 display-7">MCU Awal</h4>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a class="btn btn-warning" asp-controller="FirstMCU" asp-action="Upload"><i class="menu-icon bx bx-upload"></i> Upload</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 my-4 order-0">
+                                <div class="card">
+                                    <div class="d-flex align-items-end row">
+                                        <div class="col-sm-12">
+                                            <div class="card-body">
+                                                <div class="table-responsive text-nowrap">
+                                                    <table class="table table-striped" id="myTable">
+                                                        <thead> 
+                                                            <tr>
+                                                                <th>Transaction No.</th>
+                                                                <th>NIK</th>
+                                                                <th>Name</th>
+                                                                <th>Department</th>
+                                                                <th>Created By</th>
+                                                                <th>Created At</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>xyz-0001</td>
+                                                                <td>0001</td>
+                                                                <td>Akmal</td>
+                                                                <td>IT Pharma</td>
+                                                                <td>Admin</td>
+                                                                <td>31/03/2024</td>
+                                                                <td><a href="">Download</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>xyz-0002</td>
+                                                                <td>0002</td>
+                                                                <td>Aziz</td>
+                                                                <td>IT</td>
+                                                                <td>Admin</td>
+                                                                <td>31/03/2024</td>
+                                                                <td><a href="">Download</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>xyz-0003</td>
+                                                                <td>0003</td>
+                                                                <td>Ikhsan</td>
+                                                                <td>Hr</td>
+                                                                <td>Admin</td>
+                                                                <td>31/03/2024</td>
+                                                                <td><a href="">Download</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>xyz-0004</td>
+                                                                <td>0004</td>
+                                                                <td>Azziz</td>
+                                                                <td>IT</td>
+                                                                <td>Admin</td>
+                                                                <td>31/03/2024</td>
+                                                                <td><a href="">Download</a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                        @* <tbody>
+                                                            @foreach (var firstMCU in Model)
+                                                            {
+                                                                <tr>
+                                                                    <td>@firstMCU.IdTransaction</td>
+                                                                    <td>@firstMCU.NIK</td>
+                                                                    <td>@firstMCU.Name</td>
+                                                                    <td>@firstMCU.Department</td>
+                                                                    <td>@firstMCU.CreatedBy</td>
+                                                                    <td>@firstMCU.CreatedAt</td>
+                                                                    <td>
+                                                                        <a class="btn btn-primary" href="#">Download</a>
+                                                                    </td>
+                                                                    <!--Modal edit data -->
+                                                                </tr>
+                                                            }
+                                                        </tbody> *@
+                                                    </table>
+                                                </div>
+                                                <!-- / Content -->
+                                                <div class="content-backdrop fade"></div>
+                                            </div>
+                                            <!-- Content wrapper -->
+                                        </div>
+                                        <!-- / Layout page -->
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });
+        </script>
+    </div>
+</body>

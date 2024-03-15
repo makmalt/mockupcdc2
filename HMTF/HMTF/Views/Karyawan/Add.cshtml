@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Add User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model HMTF.Models.ViewModels.AddUserRequest;
+
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+        @await Html.PartialAsync("_Sidebar")
+        <!-- / Menu -->
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+            @await Html.PartialAsync("_Navbar")
+
+            <!-- / Navbar -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="row">
+                        <div class="my-3">
+                            <div class="d-flex align-items-center">
+                                <a asp-controller="Karyawan" asp-action="List"><i class='bx bx-chevron-left bx-md text-secondary'></i></a>
+                                <h4 class="m-0 p-0 display-7"><span class="fw-lighter">Master /</span> Tambah Master </h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-4 order-0">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <form method="POST">
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label">Name</label>
+                                                    <input type="text" class="form-control" id="name" asp-for="Name" placeholder="Enter your username" autofocus="">
+                                                </div>
+                                                @* <div class="mb-3">
+                                                <label for="name" class="form-label">Email</label>
+                                                <input type="text" class="form-control" id="email" asp-for="Email" placeholder="Enter your username" autofocus="">
+                                                </div> *@
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label">Department</label>
+                                                    <input type="text" class="form-control" id="department" asp-for="Departement" placeholder="Enter your email">
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <a class="btn btn-secondary mx-1" href="javascript:history.go(-1);">Cancel</a>
+                                                    <button class="btn btn-primary">Save</button>
+                                                </div>
+                                            </form>
+                                            <!-- / Content -->
+                                            <div class="content-backdrop fade"></div>
+                                        </div>
+                                        <!-- Content wrapper -->
+                                    </div>
+                                    <!-- / Layout page -->
+                                </div>
+                                <div class="buy-now">
+                                    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
+                                       target="_blank"
+                                       class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
+                                    <!-- Overlay -->
+                                    <div class="layout-overlay layout-menu-toggle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
